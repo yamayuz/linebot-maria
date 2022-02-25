@@ -1,4 +1,6 @@
 from pathlib import Path
+from decouple import config
+# from dj_database_url import parse as dburl
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -13,7 +15,7 @@ SECRET_KEY = 'django-insecure-6nijkvw=j$m6=@wz7-dt9m$isu6_sd^(p7#a721%sqd$3t%_5*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".ngrok.io"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
