@@ -2,12 +2,15 @@ from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 import urllib.request
 import json
+import environ
+
+env = environ.Env()
+env.read_env('.env')
 
 REPLY_ENDPOINT_URL = "https://api.line.me/v2/bot/message/reply"
-ACCESSTOKEN = '2An/Hh0ArYjOKeUJu5wJRFup+X9N8Zn+yKXvCU6K2dD1apJcT4siWZZE5EksQS+NB41S5SBNfBj+T6I3jtslksuKi0CilynXbzYYhL+gxHC6fAeamb9iLbnSm3/ERWYGdInhvdjuI4N1y50G01GoLQdB04t89/1O/w1cDnyilFU='
 HEADER = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ' + ACCESSTOKEN
+    'Authorization': 'Bearer ' + env('ACCESSTOKEN')
 }
 
 class LineMessage():
